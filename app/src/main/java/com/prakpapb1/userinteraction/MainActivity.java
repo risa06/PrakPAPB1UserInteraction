@@ -1,10 +1,13 @@
 package com.prakpapb1.userinteraction;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -93,5 +96,31 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         myAlertBuilder.show();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_menu1:
+                Toast.makeText(MainActivity.this, "Anda memilih Menu 1",
+                        Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.action_menu2:
+                Toast.makeText(MainActivity.this, "Anda memilih Menu 2",
+                        Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.action_menu3:
+                Toast.makeText(MainActivity.this, "Anda memilih Menu 3",
+                        Toast.LENGTH_SHORT).show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }
